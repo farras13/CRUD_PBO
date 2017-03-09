@@ -25,7 +25,9 @@ import javax.swing.table.DefaultTableModel;
  * @author USER
  */
 public class frmMain extends javax.swing.JFrame {
-
+String nol_jam = "";
+    String nol_menit = "";
+    String nol_detik = "";
     
     /**
      * Creates new form frmMain
@@ -65,6 +67,10 @@ public class frmMain extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
+        Tanggal = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtTempat = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -139,6 +145,11 @@ public class frmMain extends javax.swing.JFrame {
         txtArea.setRows(5);
         jScrollPane1.setViewportView(txtArea);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Tanggal Lahir");
+
+        jLabel5.setText("Tempat Lahir");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -148,7 +159,11 @@ public class frmMain extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtTempat, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Tanggal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                             .addComponent(jrLaki)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -181,7 +196,15 @@ public class frmMain extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jrLaki)
                     .addComponent(jrCewe))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addGap(11, 11, 11)
+                .addComponent(Tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTempat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,8 +215,8 @@ public class frmMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel3);
@@ -252,15 +275,15 @@ public class frmMain extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -327,20 +350,20 @@ public class frmMain extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
-      if ("".equals(txtNis.getText()) || "".equals(txtArea.getText()) || "".equals(txtKelas.getText()) || "".equals(txtNama.getText()) || "".equals(txtEmail.getText()))
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+      String tanggal = dateFormat.format(Tanggal.getDate());
+      String JK = "";
+            if(jrLaki.isSelected()){
+            }else{   JK = "L";
+            }
+            if(jrCewe.isSelected())
+                JK = "P";
+                   
+     if(txtNis.getText().equals("") || txtNama.getText().equals("") || tanggal.equals("") || JK.equals() || txtKelas.getText().equals("") || txtEmail.getText().equals("") || txtTempat.getText().equals("") || txtArea.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this, "Harap Lengkapi Data", "Error", JOptionPane.WARNING_MESSAGE);
-        } else{
-            String JK = "";
-            if(jrLaki.isSelected()){
-                JK = "L";
-            }else{
-                JK = "P";
-            }
-            
-          String SQL = "INSERT INTO t_siswa (NIS,NamaSiswa,JenisKelamin,Kelas,Email,Alamat)"+"VALUES('"+txtNis.getText()+"','"+txtNama.getText()+"','"+JK+"','"+txtKelas.getText()+"','"+txtEmail.getText()+"','"+txtArea.getText()+"')";
+        } else{           
+          String SQL = "INSERT INTO t_siswa VALUES('"+txtNis.getText()+"','"+txtNama.getText()+"','"+JK+"','"+txtKelas.getText()+"','"+txtEmail.getText()+"','"+txtArea.getText()+"')";
           int status = koneksiDB.execute(SQL);
           if(status == 1){
               JOptionPane.showMessageDialog(this,"Data berhasil ditambahkan","Sukses",JOptionPane.INFORMATION_MESSAGE);
@@ -474,6 +497,7 @@ public class frmMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser Tanggal;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -484,6 +508,8 @@ public class frmMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -505,6 +531,7 @@ public class frmMain extends javax.swing.JFrame {
     private javax.swing.JTextField txtKelas;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtNis;
+    private javax.swing.JTextField txtTempat;
     // End of variables declaration//GEN-END:variables
 
     private void selectData() {
@@ -541,6 +568,37 @@ public class frmMain extends javax.swing.JFrame {
         }
         tData.setModel(dtm);
     }
+    public void setTanggal(){
+        java.util.Date skrg = new java.util.Date();
+        java.text.SimpleDateFormat kal = new
+        java.text.SimpleDateFormat("dd/MM/yyyy");
+        labeltanggal.setText(kal.format(skrg));
+    }
     
+    public void SetJam(){
+        ActionListener taskPerformer = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                Date dt = new Date();
+                int nilai_jam = dt.getHours();
+                int nilai_menit = dt.getMinutes();
+                int nilai_detik = dt.getSeconds();
+               if (nilai_jam <= 9) {
+                    nol_jam = "0";
+                }
+                if (nilai_menit <=9) {
+                    nol_menit = "0";
+                }
+                if (nilai_detik <= 9) {
+                    nol_detik = "0";
+                }
+                              
+                String jam = nol_jam + Integer.toString(nilai_jam);
+                String menit = nol_menit + Integer.toString(nilai_menit);
+                String detik = nol_detik + Integer.toString(nilai_detik);
+                labelJam.setText("Jam "+jam+ ":" + menit +":"+detik);
+            }
+        }
+    }
 
 }
